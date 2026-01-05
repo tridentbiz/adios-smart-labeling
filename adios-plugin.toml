@@ -1,13 +1,13 @@
 [plugin]
 name = "smart-labeling"
-version = "0.1.0"
-description = "AdiOS smart-labeling plugin"
+version = "1.0.0"
+description = "AI-powered smart labeling and annotation platform with context-aware labeling using Organization Brain"
 category = "enterprise"
-license = "MIT"
+license = "Commercial"
 author = "TridentBiz Team <team@tridentbiz.com>"
 homepage = "https://github.com/tridentbiz/adios-smart-labeling"
 repository = "https://github.com/tridentbiz/adios-smart-labeling"
-keywords = ["adios", "plugin", "enterprise", "smart-labeling"]
+keywords = ["adios", "plugin", "enterprise", "smart-labeling", "ai", "annotation", "labeling"]
 
 [compatibility]
 adios-core = ">=1.0.0"
@@ -19,9 +19,34 @@ optional_core_services = ["adios-luna-ai", "adios-sync-protocol"]
 system_dependencies = []
 
 [marketplace]
-price = "free"
-support_tier = "community"
+price = "enterprise"
+support_tier = "enterprise"
 standalone_sellable = true
+pricing_model = "usage"
+target_audience = ["data_scientists", "ml_engineers", "data_analysts", "enterprise_teams"]
+
+[commercial]
+free_tier = true
+pricing_tiers = [
+  { name = "Starter", price = 100000, features = ["basic_labeling", "1000_samples_month", "email_support"] },
+  { name = "Professional", price = 500000, features = ["ai_assisted_labeling", "active_learning", "10000_samples_month", "priority_support"] },
+  { name = "Enterprise", price = 2000000, features = ["context_aware_labeling", "unlimited_samples", "custom_models", "dedicated_support"] }
+]
+
+[integration]
+circular_flow = ["learn", "capture", "improve"]
+data_flow = ["ingest", "annotate", "validate", "export"]
+requires_ewa = false
+enhanced_with_ewa = true
+enhanced_with_organization_brain = true
+
+[features]
+ai_assisted = true
+active_learning = true
+context_aware = true
+multi_modal = ["text", "image", "audio", "video"]
+quality_assurance = true
+human_in_loop = true
 
 [integration]
 circular_flow = ["learn", "capture", "improve"]

@@ -1,15 +1,53 @@
 [package]
 name = "adios-smart-labeling"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
-description = "AdiOS smart-labeling plugin"
-license = "MIT"
+description = "AI-powered smart labeling and annotation platform with context-aware labeling using Organization Brain"
+license = "Commercial"
 repository = "https://github.com/tridentbiz/adios-smart-labeling"
+authors = ["TridentBiz Team <team@tridentbiz.com>"]
+keywords = ["adios", "plugin", "enterprise", "smart-labeling", "ai"]
+categories = ["development-tools", "science"]
 
 [dependencies]
+# Core AdiOS dependencies
+adios-core = { path = "../../libs/adios-core", features = ["tui"] }
+
+# Async runtime and utilities
 tokio = { version = "1.0", features = ["full"] }
+async-trait = "0.1"
+
+# Serialization and data handling
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+toml = "0.8"
+
+# Logging and error handling
+tracing = "0.1"
+tracing-subscriber = "0.3"
+anyhow = "1.0"
+
+# Time and UUID
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
 
 [dev-dependencies]
 tokio-test = "0.4"
+tempfile = "3.0"
+mockall = "0.12"
+
+[features]
+default = []
+full = []
+
+[[bin]]
+name = "adios-smart-labeling"
+path = "src/main.rs"
+
+[package.metadata.adios]
+category = "enterprise"
+pricing_model = "usage"
+requires_ewa = false
+enhanced_with_ewa = true
+enhanced_with_organization_brain = true
+target_audience = ["data_scientists", "ml_engineers", "data_analysts", "enterprise_teams"]
